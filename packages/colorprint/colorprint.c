@@ -146,7 +146,6 @@ void clprogress_print(const char *format, ...){
     struct winsize size;
     char *str;
     va_list ap;
-    int len;
     ioctl(STDIN_FILENO,TIOCGWINSZ,&size);
     str = malloc(size.ws_col);
 
@@ -156,7 +155,7 @@ void clprogress_print(const char *format, ...){
     _print("%s\r", str);
 
     va_start(ap, format);
-    len = vsnprintf(str, size.ws_col, format, ap);
+    vsnprintf(str, size.ws_col, format, ap);
     va_end(ap);
     _print("%s", str);
 
