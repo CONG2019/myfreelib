@@ -49,8 +49,10 @@ $(STATIC_LIB):$(OBJS)
 $(PACKAGE)/install:$(TARGET)
 	@echo "\033[33;1m Install $(PACKAGE)... ... \033[0m"
 	$(INSTALL_DIR) $(PKG_INSTALL_ROOT_DIR)/usr/lib
+	$(INSTALL_DIR) $(PKG_INSTALL_ROOT_DIR)/usr/include
 	$(INSTALL_BIN) $(TARGET) $(PKG_INSTALL_ROOT_DIR)/usr/lib
 	$(STRIP) $(PKG_INSTALL_ROOT_DIR)/usr/lib/$(TARGET)
+	$(INSTALL_DATA) colorprint.h $(PKG_INSTALL_ROOT_DIR)/usr/include
 	$(LN) -sf $(PKG_INSTALL_ROOT_DIR)/usr/lib/$(TARGET) $(PKG_INSTALL_ROOT_DIR)/usr/lib/$(LIBNAME).$(MAJOR_VERSION)
 	$(LN) -sf $(PKG_INSTALL_ROOT_DIR)/usr/lib/$(LIBNAME).$(MAJOR_VERSION) $(PKG_INSTALL_ROOT_DIR)/usr/lib/$(LIBNAME)
 
