@@ -6,3 +6,7 @@ $(1)/clean:
 	@echo "\033[31;1m Clean $(1)... ...\033[0m"
 	$(MAKE) -C $(BUILD_DIR)/$(1) clean
 endef
+
+define dependency
+$(1):$(2)
+endef
