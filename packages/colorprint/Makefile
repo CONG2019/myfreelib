@@ -33,10 +33,10 @@ $(CURRENT_DIR)/.prepare:
 	$(TOUCH) $(CURRENT_DIR)/.prepare
 
 $(TARGET):$(OBJS)
-	$(CC) $(CFLAGS) -shared -Wl,-soname,$(LIBNAME).$(MAJOR_VERSION) -o $(TARGET) $(OBJS)
+	$(CC) $(OBJS) $(CFLAGS) -shared -Wl,-soname,$(LIBNAME).$(MAJOR_VERSION) -o $(TARGET)
 
 demo:$(TARGET) demo.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -Wl,-rpath,'$$ORIGIN'/usr/lib:$(PKG_INSTALL_ROOT_DIR)/usr/lib/ -lclprint -o demo demo.o
+	$(CC) demo.o $(CFLAGS) $(LDFLAGS) -Wl,-rpath,'$$ORIGIN'/usr/lib:$(PKG_INSTALL_ROOT_DIR)/usr/lib/ -lclprint -o demo
 
 static:$(STATIC_LIB)
 

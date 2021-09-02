@@ -30,7 +30,7 @@ $(CURRENT_DIR)/.prepare:
 	$(TOUCH) $(CURRENT_DIR)/.prepare
 
 $(TARGET):$(OBJS)
-	$(CC) $(CFLAGS) -ldl -o $(TARGET) $(OBJS)
+	$(CC) $(OBJS) $(LDFLAGS) $(CFLAGS) -ldl -o $(TARGET)
 
 run:
 	@echo "\n\033[32;1m----------------      running      --------------\033[0m"
