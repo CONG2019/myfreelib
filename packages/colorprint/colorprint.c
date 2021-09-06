@@ -9,7 +9,7 @@
 #include "colorprint.h"
 
 static int (*_print)(const char *, ...) = printf;
-static char _bar[MAX_BAR_LENGTH];
+__attribute__ ((visibility("hidden"))) char _bar[MAX_BAR_LENGTH];
 
 void clprogress_init(progress_t *pro, char chr, char *title, int len, int style, int color, int bgcolor, FILE *stream, char *bar){
     pro->chr = (chr == '\0' ? '#' : chr);

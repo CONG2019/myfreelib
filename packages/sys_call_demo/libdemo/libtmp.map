@@ -1,0 +1,10 @@
+VER_1{
+	global:
+		xyz;
+        x;
+	local:
+		*;	# Hide all other symbols
+};
+VER_2{
+	global: pqr;
+}VER_1;	#VER_2依赖于VER_1
