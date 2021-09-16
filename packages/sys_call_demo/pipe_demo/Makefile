@@ -19,12 +19,14 @@ PKG_INSTALL_ROOT_DIR ?= $(CURRENT_DIR)
 SOURCES := pipe_demo.c
 OBJS := $(SOURCES:.c=.o)
 TARGET := $(PACKAGE)
+PIPE_SER := pipe_server
+PIPE_CL := pipe_client
 
 CFLAGS ?= -Werror -Wall -g
 INCLUDE ?= -I./ -I$(PKG_INSTALL_ROOT_DIR)/usr/include
 LDFLAGS += -L./ -L$(PKG_INSTALL_ROOT_DIR)/usr/lib
 
-all:$(CURRENT_DIR)/.prepare $(TARGET)
+all:$(CURRENT_DIR)/.prepare $(TARGET) $(PIPE_SER) $(PIPE_CL)
 
 $(CURRENT_DIR)/.prepare:
 	$(TOUCH) $(CURRENT_DIR)/.prepare
@@ -32,9 +34,15 @@ $(CURRENT_DIR)/.prepare:
 $(TARGET):$(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) $(CFLAGS) -o $(TARGET)
 
+$(PIPE_SER):pipe_server.c
+	$(CC) $(INCLUDE) $(CFLAGS) -o $(PIPE_SER) pipe_server.c
+
+$(PIPE_CL):pipe_client.c
+	$(CC) $(INCLUDE) $(CFLAGS) -o $(PIPE_CL) pipe_client.c
+
 run:
 	@echo "\n\033[32;1m----------------      running      --------------\033[0m"
-	@exec $(CURRENT_DIR)/$(TARGET)
+	@exec $(CURRENT_DIR)/$(TARGET) ${argv}
 	@echo "\n\033[32;1m----------------        end        --------------\033[0m"
 
 %.o : %.c
