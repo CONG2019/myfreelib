@@ -35,10 +35,10 @@ $(TARGET):$(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) $(CFLAGS) -o $(TARGET)
 
 $(MSG_SER):sysv_msg_server.c
-	$(CC) $(INCLUDE) $(CFLAGS) -o $(MSG_SER) sysv_msg_server.c
+	$(CC) $(INCLUDE) $(CFLAGS) -DNEW_SERVER_CLIENT_MODEL -o $(MSG_SER) sysv_msg_server.c
 
 $(MSG_CL):sysv_msg_client.c
-	$(CC) $(INCLUDE) $(CFLAGS) -o $(MSG_CL) sysv_msg_client.c
+	$(CC) $(INCLUDE) $(CFLAGS) -DNEW_SERVER_CLIENT_MODEL -o $(MSG_CL) sysv_msg_client.c
 
 run:
 	@echo "\n\033[32;1m----------------      running      --------------\033[0m"
