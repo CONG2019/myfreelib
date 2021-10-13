@@ -1,3 +1,4 @@
 libdemo
 pipe_demo
 sysv_msg_demo
+sysv_sem_demo
