@@ -5,3 +5,5 @@ sysv_sem_demo
 sysv_shm_demo
 mmap_demo
 posix_mq_demo
+posix_sem_demo
+posix_shm_demo
