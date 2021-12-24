@@ -1,5 +1,5 @@
-#ifndef _POSIX_MQ_DEMO
-#define _POSIX_MQ_DEMO
+#ifndef _POSIX_SHM_DEMO
+#define _POSIX_SHM_DEMO
 
 #include <semaphore.h>
 
