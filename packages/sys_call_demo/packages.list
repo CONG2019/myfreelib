@@ -8,3 +8,4 @@ posix_mq_demo
 posix_sem_demo
 posix_shm_demo
 file_lock_demo
+unix_socket_demo
