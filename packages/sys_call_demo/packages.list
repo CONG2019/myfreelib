@@ -10,3 +10,5 @@ posix_shm_demo
 file_lock_demo
 unix_socket_demo
 inet_socket_demo
+io_module_demo
+pty_demo
