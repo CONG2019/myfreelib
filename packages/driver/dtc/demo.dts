@@ -1,0 +1,22 @@
+/dts-v1/;
+
+/ {
+    model = "SMDK2440";
+    compatible = "samsung,smdk2440";
+    #address-cells = <1>;
+    #size-cells = <1>;
+
+    memory@30000000 {
+        device_type = "memory";
+        reg =  <0x30000000 0x4000000>;
+    };
+
+    chosen {
+        bootargs = "console=ttySAC0,115200 rw root=/dev/mtdblock4 rootfstype=yaffs2";
+    };
+
+    led@00000040{
+        compatible = "jz2440_led";
+        reg = <0x0040 1>;
+    };
+};
