@@ -4,6 +4,9 @@
 #include <linux/kobject.h>
 #include <linux/sysfs.h>
 
+/*
+ * Use "udevadm monitor --env" listening uevent
+ */
 static struct kobject *my_kobj;
 
 static ssize_t my_sysfs_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
